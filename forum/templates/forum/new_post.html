@@ -1,0 +1,15 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">New Post in {{ thread.title }}</h2>
+    <form method="post" class="border p-4 rounded bg-light">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.content.label_tag }}
+            {{ form.content|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn btn-success">Create Post</button>
+    </form>
+</div>
+{% endblock %}
